@@ -9,15 +9,13 @@ import UIKit
 
 class UsersTableViewController: UITableViewController {
     
-//    var results: [User] = []
     private var users: UserResult?
-    private let url = URL(string: "https://randomuser.me/api/?format=json&results=20")!
     private let networkManager = NetworkManager.shared
+    private let url = NetworkManager.shared.url
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  fetchUser()
-//        tableView.rowHeight = 70
+        fetchUser()
         
     }
     
@@ -47,25 +45,5 @@ extension UsersTableViewController {
             }
         }
     }
-
-//    func fetchUser() {
-//        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-//            guard let data else {
-//                print(error?.localizedDescription ?? "No error description")
-//                return
-//            }
-//            do {
-//                let decoder = JSONDecoder()
-//                self?.results = try decoder.decode([User].self, from: data)
-//                DispatchQueue.main.async {
-//                    self?.tableView.reloadData()
-//                }
-//            } catch  {
-//                print(error.localizedDescription)
-//            }
-//        }.resume()
-//
-//    }
-
 }
 

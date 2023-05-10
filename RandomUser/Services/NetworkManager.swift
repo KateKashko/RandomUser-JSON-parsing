@@ -12,9 +12,8 @@ enum NetworkError: Error {
 }
 
 final class NetworkManager {
-//    var users: [User] = []
     static let shared = NetworkManager()
-//     let url = URL(string: "https://randomuser.me/api/?format=json&results=20")!
+    let url = URL(string: "https://randomuser.me/api/?format=json&results=20")!
     
     private init() {}
 
