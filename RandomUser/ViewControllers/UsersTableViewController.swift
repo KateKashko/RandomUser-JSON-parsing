@@ -15,8 +15,7 @@ class UsersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchUser()
-        
+        fetchUser()      
     }
     
     // MARK: - Table view data source
@@ -37,7 +36,9 @@ class UsersTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "userSegue" {
             guard let userDetailsVC = segue.destination as? UserDetailsViewController else  { return }
-            userDetailsVC.users = sender as? UserResult
+            guard let indexPath = tableView.indexPathForSelectedRow else { return}
+            let user = users?.results[indexPath.row]
+            userDetailsVC.user = user
         }
     }
 }
