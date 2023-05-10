@@ -9,7 +9,7 @@ import UIKit
 
 class UsersTableViewController: UITableViewController {
     
-    private var users: UserResult?
+     var users: UserResult?
     private let networkManager = NetworkManager.shared
     private let url = NetworkManager.shared.url
     
@@ -30,6 +30,15 @@ class UsersTableViewController: UITableViewController {
         let user = users?.results[indexPath.row]
         cell.configure(with: user!)
         return cell
+    }
+    
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "userSegue" {
+            guard let userDetailsVC = segue.destination as? UserDetailsViewController else  { return }
+            userDetailsVC.users = sender as? UserResult
+        }
     }
 }
     // MARK: - Networking

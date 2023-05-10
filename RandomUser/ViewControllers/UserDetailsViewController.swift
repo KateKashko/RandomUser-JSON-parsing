@@ -17,7 +17,9 @@ final class UserDetailsViewController: UIViewController {
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     
+     var users: UserResult?
     private let networkManager = NetworkManager.shared
+//    var users: [User]?
 
     
     override func viewDidLoad() {
