@@ -17,8 +17,8 @@ final class UserDetailsViewController: UIViewController {
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     
-//     var user: UserResult?
-        var user: User?
+    var user: User?
+    
     private let networkManager = NetworkManager.shared
     private let url = NetworkManager.shared.url
 
@@ -27,30 +27,12 @@ final class UserDetailsViewController: UIViewController {
         super.viewDidLoad()
         userNameLabel.text = user?.name.first
         userSurnameLabel.text = user?.name.last
-        phoneLabel.text = String("Phone: \(user?.phone)")
+        phoneLabel.text = user?.phone
         emailLabel.text = user?.email
         countryLabel.text = user?.location.country
         cityLabel.text = user?.location.city
 
-        networkManager.fetchImage(from: url ) { [weak self] result in
-            switch result {
-            case .success(let imageData):
-                self?.userImage.image = UIImage(data: imageData)
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-//    func configure (with user: User) {
-//        userNameLabel.text = user.name.first
-//        userSurnameLabel.text = user.name.last
-//        phoneLabel.text = user.phone
-//        emailLabel.text = user.email
-//        countryLabel.text = user.location.country
-//        countryLabel.text = user.location.city
-//
-//        networkManager.fetchImage(from: user.picture.large) { [weak self] result in
+//        networkManager.fetchImage(from: user?.picture.large) { [weak self] result in
 //            switch result {
 //            case .success(let imageData):
 //                self?.userImage.image = UIImage(data: imageData)
@@ -58,6 +40,6 @@ final class UserDetailsViewController: UIViewController {
 //                print(error)
 //            }
 //        }
-//    }
+    }
 }
 
