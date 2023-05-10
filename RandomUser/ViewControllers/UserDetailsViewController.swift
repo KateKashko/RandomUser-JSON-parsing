@@ -25,17 +25,14 @@ final class UserDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func configure (with user: User) {
-        userNameLabel.text = user.name.first
-        userSurnameLabel.text = user.name.last
-        phoneLabel.text = user.phone
-        emailLabel.text = user.email
-        countryLabel.text = user.location.country
-        countryLabel.text = user.location.city
+        userNameLabel.text = user?.name.first
+        userSurnameLabel.text = user?.name.last
+        phoneLabel.text = String("Phone: \(user?.phone)")
+        emailLabel.text = user?.email
+        countryLabel.text = user?.location.country
+        cityLabel.text = user?.location.city
 
-        networkManager.fetchImage(from: user.picture.large) { [weak self] result in
+        networkManager.fetchImage(from: url ) { [weak self] result in
             switch result {
             case .success(let imageData):
                 self?.userImage.image = UIImage(data: imageData)
@@ -44,5 +41,23 @@ final class UserDetailsViewController: UIViewController {
             }
         }
     }
+    
+//    func configure (with user: User) {
+//        userNameLabel.text = user.name.first
+//        userSurnameLabel.text = user.name.last
+//        phoneLabel.text = user.phone
+//        emailLabel.text = user.email
+//        countryLabel.text = user.location.country
+//        countryLabel.text = user.location.city
+//
+//        networkManager.fetchImage(from: user.picture.large) { [weak self] result in
+//            switch result {
+//            case .success(let imageData):
+//                self?.userImage.image = UIImage(data: imageData)
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
 }
 
