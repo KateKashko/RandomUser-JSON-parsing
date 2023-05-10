@@ -13,6 +13,7 @@ enum NetworkError: Error {
 }
 
 final class NetworkManager {
+    var users: [User] = []
     static let shared = NetworkManager()
      let url = URL(string: "https://randomuser.me/api/?format=json&results=20")!
     
@@ -30,7 +31,7 @@ final class NetworkManager {
         }
     }
     
-    func fetchUser(from url: URL, completion: @escaping(Result<User, NetworkError>) -> Void) {
+    func fetchUser(from url: URL, completion: @escaping(Result<UserResult, NetworkError>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data else {
                 completion(.failure(.noData))
@@ -39,9 +40,9 @@ final class NetworkManager {
             }
             do {
                 let decoder = JSONDecoder()
-                let user = try decoder.decode(User.self, from: data)
+                let newUser = try decoder.decode(UserResult.self, from: data)
                 DispatchQueue.main.async {
-                    completion(.success(user))
+                    completion(.success(newUser))
                 }
             } catch  {
                 completion(.failure(.decodingError))

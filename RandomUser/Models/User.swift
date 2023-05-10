@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct UserResults: Decodable {
+struct UserResult: Decodable {
     let results: [User]
 }
 

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Users-->
         <scene sceneID="JvB-Dm-FH8">
             <objects>
                 <tableViewController id="iVk-SP-Fa8" customClass="UsersTableViewController" customModule="RandomUser" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,14 +34,17 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JLf-NN-Suf">
                                             <rect key="frame" x="113.99999999999999" y="13" width="49.333333333333329" height="44"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yz-Nx-Dgd">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yz-Nx-Dgd">
                                                     <rect key="frame" x="0.0" y="0.0" width="49.333333333333336" height="20.333333333333332"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeb-TV-eI0">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeb-TV-eI0">
                                                     <rect key="frame" x="0.0" y="28.333333333333339" width="49.333333333333336" height="15.666666666666668"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15.666666666666668" id="IGb-JP-43J"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -73,7 +76,7 @@
                             <outlet property="delegate" destination="iVk-SP-Fa8" id="Udd-a1-oUK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="8ik-S4-JY2"/>
+                    <navigationItem key="navigationItem" title="Users" id="8ik-S4-JY2"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gY9-Pa-ej2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
