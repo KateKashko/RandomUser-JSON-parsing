@@ -7,15 +7,14 @@
 
 import Foundation
 enum NetworkError: Error {
-    case invalidURL
     case noData
     case decodingError
 }
 
 final class NetworkManager {
-    var users: [User] = []
+//    var users: [User] = []
     static let shared = NetworkManager()
-     let url = URL(string: "https://randomuser.me/api/?format=json&results=20")!
+//     let url = URL(string: "https://randomuser.me/api/?format=json&results=20")!
     
     private init() {}
 

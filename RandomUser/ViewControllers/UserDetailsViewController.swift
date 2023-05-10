@@ -7,13 +7,39 @@
 
 import UIKit
 
-class UserDetailsViewController: UIViewController {
+final class UserDetailsViewController: UIViewController {
+    
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userSurnameLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    
+    private let networkManager = NetworkManager.shared
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
+    
+    func configure (with user: User) {
+        userNameLabel.text = user.name.first
+        userSurnameLabel.text = user.name.last
+        phoneLabel.text = user.phone
+        emailLabel.text = user.email
+        countryLabel.text = user.location.country
+        countryLabel.text = user.location.city
 
-
+        networkManager.fetchImage(from: user.picture.large) { [weak self] result in
+            switch result {
+            case .success(let imageData):
+                self?.userImage.image = UIImage(data: imageData)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
 

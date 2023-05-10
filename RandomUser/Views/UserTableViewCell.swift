@@ -15,14 +15,6 @@ class UserTableViewCell: UITableViewCell {
     
     private let networkManager = NetworkManager.shared
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
     func configure(with user: User) {
         userNameLabel.text = user.name.first
         userSurnameLabel.text = user.name.last

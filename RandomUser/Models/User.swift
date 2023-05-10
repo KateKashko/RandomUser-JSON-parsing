@@ -30,6 +30,5 @@ struct Location: Decodable {
 
 struct Picture: Decodable {
     let large: URL
-    let medium: URL
     let thumbnail: URL
 }
