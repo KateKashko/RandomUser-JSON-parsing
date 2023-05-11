@@ -30,7 +30,7 @@ final class UserDetailsViewController: UIViewController {
         phoneLabel.text = "Phone: \(user?.phone ?? "")"
         emailLabel.text = "Email: \(user?.email ?? "")"
         countryLabel.text = "Country: \(user?.location.country ?? "")"
-        cityLabel.text = "City: \(user?.location.city ?? "")
+        cityLabel.text = "City: \(user?.location.city ?? "")"
 
 //        networkManager.fetchImage(from: user?.picture.large) { [weak self] result in
 //            switch result {

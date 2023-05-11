@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UsersTableViewController: UITableViewController {
+final class UsersTableViewController: UITableViewController {
     
      var users: UserResult?
     private let networkManager = NetworkManager.shared
