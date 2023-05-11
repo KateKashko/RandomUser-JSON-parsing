@@ -32,14 +32,14 @@ final class UserDetailsViewController: UIViewController {
         countryLabel.text = "Country: \(user?.location.country ?? "")"
         cityLabel.text = "City: \(user?.location.city ?? "")"
 
-//        networkManager.fetchImage(from: user?.picture.large) { [weak self] result in
-//            switch result {
-//            case .success(let imageData):
-//                self?.userImage.image = UIImage(data: imageData)
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
+        networkManager.fetchImage(from: (user?.picture.large)!) { [weak self] result in
+            switch result {
+            case .success(let imageData):
+                self?.userImage.image = UIImage(data: imageData)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 
